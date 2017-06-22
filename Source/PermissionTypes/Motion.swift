@@ -36,7 +36,7 @@ extension Permission {
         return .notDetermined
     }
     
-    func requestMotion(_ callback: Callback?) 
+    func requestMotion(_ callback: Callback?) {
         let now = Date()
         
         MotionManager.queryActivityStarting(from: now, to: now, to: OperationQueue.main) { activities, error in
