@@ -36,9 +36,7 @@ extension Permission {
         return .notDetermined
     }
     
-    func requestMotion(_ callback: Callback?) {
-        UserDefaults.standard.requestedMotion = true
-        
+    func requestMotion(_ callback: Callback?) 
         let now = Date()
         
         MotionManager.queryActivityStarting(from: now, to: now, to: OperationQueue.main) { activities, error in
@@ -47,6 +45,7 @@ extension Permission {
             if  let error = error , error._code == Int(CMErrorMotionActivityNotAuthorized.rawValue) {
                 status = .denied
             } else {
+                UserDefaults.standard.requestedMotion = true
                 status = .authorized
             }
             
